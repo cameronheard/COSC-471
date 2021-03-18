@@ -10,7 +10,7 @@ ipython = "*"
 flask = "*"
 sqlalchemy = "*"
 pymysql = "*"
-wtforms = "*"
+wtforms = {extras = ["email"], version = "*"}
 wtforms-appengine = "*"
 wtforms-sqlalchemy = "*"
 
