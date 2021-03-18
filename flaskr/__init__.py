@@ -15,4 +15,7 @@ def create_app(test_config=None):
     except FileExistsError:
         pass
 
+    from flaskr import auth
+    app.register_blueprint(auth.bp)
+
     return app
