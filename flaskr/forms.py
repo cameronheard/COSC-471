@@ -14,3 +14,8 @@ class UserForm(Form):
     street = StringField("Street", validators=[validators.input_required()])
     apartment = StringField("Apartment")
     postal_code = StringField("Postal Code")
+
+
+class LoginForm(Form):
+    username = StringField("Username", validators=[validators.input_required(), validators.length(min=5, max=64)])
+    password = StringField("Password", validators=[validators.input_required(), validators.length(min=5, max=64)])
