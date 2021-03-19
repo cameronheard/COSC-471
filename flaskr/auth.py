@@ -11,61 +11,40 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from flaskr.database import engine, db_session
+from flaskr.models import User
+from flaskr.forms import UserForm, LoginForm
 import sqlalchemy
 import re
+import json
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
 @bp.route("/register", methods=("GET", "POST"))
 def register():
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+    form = UserForm(request.POST)
+    if request.method == "POST" and form.validate():
+        user = User()
+        user.username = form.username
+        user.password = generate_password_hash(form.password)
+        user.phone = form.phone
         email_pattern = re.compile(r"^(?P<local>.{0,64})@(?P<domain>.{0,255})$")
         email = email_pattern.match(request.form["email"])
-        error = None
-        with engine.begin() as conn:
-            if not username:
-                error = "Username is required."
-            elif not password:
-                error = "Password is required."
-            elif not request.form["email"]:
-                error = "Email is required"
-            elif not request.form["phone"]:
-                error = "Phone number is required"
-            elif (
-                conn.execute(
-                    "SELECT id FROM user WHERE username = ?", username
-                ).first()
-                is not None
-            ):
-                error = f"User {username} is already registered."
-            elif email is None:
-                error = "Invalid email."
-            elif (
-                conn.execute(
-                    "SELECT id FROM user WHERE email = ?", email
-                ).first()
-                is not None
-            ):
-                error = f"Email address {request.form['email']} is already registered."
+        user.email_local = email.group("local")
+        user.email_domain = email.group("domain")
+        address = {
+            "country": form.country,
+            "state": form.state,
+            "city": form.city,
+            "street": form.street,
+            "apartment": form.apartment,
+            "postal_code": form.postal_code,
+        }
+        user.address = json.dumps(address)
+        db_session.add(user)
+        return redirect(url_for("login"))
 
-            if error:
-                flash(error)
-            else:
-                conn.execute(
-                    "INSERT INTO user (username, password, email_local, email_domain, phone)"
-                    "VALUES (:username, :password, :email_local, :email_domain, :phone)",
-                    username=username,
-                    password=generate_password_hash(password),
-                    email_local=email.group("local"),
-                    email_domain=email.group("domain"),
-                    phone=request.form["phone"]
-                )
-                return redirect(url_for("login"))
-
-        return render_template(None)
+    return render_template("auth/register.html", form=UserForm())
 
 
 @bp.route("/login", methods=("GET", "POST"))
