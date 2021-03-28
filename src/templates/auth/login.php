@@ -1,3 +1,5 @@
+<?php $title = "Log In" ?>
+
 <?php ob_start() ?>
 
 <table>
