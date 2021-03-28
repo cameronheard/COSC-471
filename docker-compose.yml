@@ -1,0 +1,70 @@
+version: "3.8"
+
+
+services:
+  php:
+    build:
+      context: ./
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src/:/var/www/html
+    networks:
+      - frontend
+      - backend
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: eMarket
+      MYSQL_USER_FILE: /run/secrets/mysql_username
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    secrets:
+      - mysql_username
+      - mysql_password
+      - mysql_root_password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+    - "8090:80"
+    networks:
+      - backend
+
+
+volumes:
+  db_data:
+
+secrets:
+  mysql_username:
+    file: cred/mysql_username.txt
+  mysql_password:
+    file: cred/mysql_password.txt
+  mysql_root_password:
+    file: cred/mysql_root_password.txt
+
+networks:
+  frontend:
+    driver: bridge
+
+  backend:
+    driver: bridge
