@@ -7,4 +7,4 @@
 
 <?php $content = ob_get_clean() ?>
 
-<?php include __DIR__.'/../base.php' ?>
+<?php include __DIR__ . '/../base.php' ?>
