@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			.body {
+				background-color: rgba(253, 253, 253, 0.966);
+				border-style: solid;
+				width: 400px;
+				height: 270px;
+				text-align: center;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -135px;
+				margin-left: -200px;
+			}
+			.header {
+				background-color: rgba(253, 253, 253, 0.966);
+			}
+
+			.text-entry {
+				border-style: inset;
+			}
+
+			.button {
+				border-style: outset;
+			}
+		</style>
+	</head>
+	<body class="body">
+		<h2 class="header">Make a payment</h2>
+
+		
+			<p>
+				<form action="InsertPayment.php">
+                    <label for="PaymentID">Payment ID</label>
+                    <input class="text-entry" type="text" name="PaymentID"><br><br>
+
+                    <label style="margin-left: 25px;" for="UserID">User ID</label>
+                    <input class="text-entry" type="text" name="UserID"><br><br>
+
+                    <label style="margin-left: -34px;" for="PaymentAmount">Payment Amount</label>
+                    <input class="text-entry" type="text" name="PaymentAmount"><br><br>
+
+                    <label style="margin-left: -14px;" for="PaymentType">Payment Type</label>
+                    <input class="text-entry" type="text" name="PaymentType"><br><br>
+
+                    <input class="button" type="submit" value="Submit">
+                  </form>
+			</p>
+
+
+			
+		
+
+	</body>
+
+	
+</html>
+
