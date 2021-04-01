@@ -2,6 +2,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/pydev,dotenv,python,pycharm,eclipse,visualstudiocode,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=pydev,dotenv,python,pycharm,eclipse,visualstudiocode,flask
 
+#Thumbnails
+._*
+.nfs*
+
+
 ### dotenv ###
 .env
 
