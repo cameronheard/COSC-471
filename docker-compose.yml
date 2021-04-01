@@ -17,6 +17,8 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
+      XDEBUG.REMOTE_HOST: host.docker.internal
+      XDEBUG.REMOTE_PORT: 9003
     depends_on:
       db:
         condition: service_healthy
