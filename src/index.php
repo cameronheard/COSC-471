@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION["errors"] = $_SESSION["errors"] ?? [];
+$errors =& $_SESSION["errors"];
 switch ($_SERVER["PATH_INFO"] ?? "/") {
     case "/register":
         require "register.php";
