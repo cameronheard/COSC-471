@@ -35,6 +35,7 @@ services:
       - mysql_root_password
     volumes:
       - db_data:/var/lib/mysql
+      - ./migrations/:/app/migrations
     networks:
       - backend
     healthcheck:
