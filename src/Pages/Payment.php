@@ -4,15 +4,17 @@
 <?php
 include("../includes/dbConnection.php");
 
+	// Checking to see if form is POST and the Submit button triggers the POST
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["Submit"])){
 
-
+	// If every field is not empty
         if(!empty($_POST['CustomerID'])&& !empty($_POST['PaymentAmount'])&& !empty($_POST['PaymentType'])){
-    
+    		// $ Creates a php variable and and $_POST() is grabbing the variable from the form
             $CustomerID = $_POST['CustomerID'];
             $PaymentAmount = $_POST['PaymentAmount'];
             $PaymentType = $_POST['PaymentType'];
 
+		// Inserting the php variables to the table
             $query = "INSERT INTO Payment (`PaymentAmount`, `PaymentType`, `CustomerID`) VALUES('$PaymentAmount', '$PaymentType', '$CustomerID')";
                         mysqli_query($conn, $query);
                     }
