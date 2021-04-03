@@ -8,7 +8,7 @@
 <?php if (!empty($_SESSION["errors"])): ?>
     <script>
         {
-            let errors = JSON.parse('<?= json_encode($_SESSION["errors"])  // Encodes the list of errors into a JSON array. ?>');  // Reads the provided JSON array from the server.
+            let errors = <?= json_encode($_SESSION["errors"])  // Encodes the list of errors into a JSON array. ?>;  // Reads the provided JSON array from the server.
             <?php unset($_SESSION["errors"])  // After retrieving the errors, remove them from the session ?>
             alert(errors.join("\n"));  // Alerts the user to the error(s).
         }
