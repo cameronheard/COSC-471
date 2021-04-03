@@ -47,6 +47,10 @@
         <td><input id="state" name="register[state]" required></td>
     </tr>
     <tr>
+        <td><label for="country">Country:</label></td>
+        <td><input id="country" name="register[country]"></td>
+    </tr>
+    <tr>
         <td><label for="postal_code">Postal Code:</label></td>
         <td><input id="postal_code" name="register[zip]" type="number" maxlength="5" minlength="5" required></td>
     </tr>
