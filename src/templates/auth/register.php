@@ -50,6 +50,13 @@
         <td><label for="postal_code">Postal Code:</label></td>
         <td><input id="postal_code" name="register[zip]" type="number" maxlength="5" minlength="5" required></td>
     </tr>
+    <tr>
+        <td>User Type:</td>
+    </tr>
+    <tr>
+        <td><label><input name="register[type]" type="radio" value="customer" required> Customer</label></td>
+        <td><label><input name="register[type]" type="radio" value="seller" required> Seller</label></td>
+    </tr>
 </table>
 <script>
     const passwordField = document.getElementById("password");
