@@ -63,8 +63,13 @@
     const confirmPasswordField = document.getElementById("confirm_password");
 
     function check_passwords() {
-        if (passwordField.innerText !== confirmPasswordField.innerText) confirmPasswordField.setCustomValidity("Passwords do not match!") else confirmPasswordField.setCustomValidity()
+        confirmPasswordField.setCustomValidity(passwordField.value === confirmPasswordField.value ? "" : "Passwords do not match!");
+        confirmPasswordField.reportValidity();
     }
+
+    passwordField.onchange = check_passwords;
+    confirmPasswordField.onchange = check_passwords;
+    confirmPasswordField.oninput = check_passwords;
 </script>
 
 <?php $form = ob_get_clean() ?>
