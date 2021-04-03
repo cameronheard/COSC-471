@@ -9,7 +9,8 @@ function connect_to_database(): PDO
     $password = isset($_ENV["MYSQL_PASSWORD_FILE"]) ? file_get_contents($_ENV["MYSQL_PASSWORD_FILE"]) : $_ENV["MYSQL_PASSWORD"];
     return new PDO("mysql:host={${$_ENV['DB_HOST'] ?? 'localhost'}};dbname={${$_ENV['DB_NAME'] ?? 'eMarket'}};port={${$_ENV['DB_PORT'] ?? 3306}}",
     $username,
-    $password);
+    $password,
+    [PDO::ATTR_PERSISTENT => true]);
 }
 
 /**
