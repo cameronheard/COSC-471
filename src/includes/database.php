@@ -7,10 +7,17 @@ function connect_to_database(): PDO
 {
     $username = isset($_ENV["MYSQL_USERNAME_FILE"]) ? file_get_contents($_ENV["MYSQL_USERNAME_FILE"]) : $_ENV["MYSQL_USERNAME"] ?? "root";
     $password = isset($_ENV["MYSQL_PASSWORD_FILE"]) ? file_get_contents($_ENV["MYSQL_PASSWORD_FILE"]) : $_ENV["MYSQL_PASSWORD"];
-    return new PDO("mysql:host={${$_ENV['DB_HOST'] ?? 'localhost'}};dbname={${$_ENV['DB_NAME'] ?? 'eMarket'}};port={${$_ENV['DB_PORT'] ?? 3306}}",
-    $username,
-    $password,
-    [PDO::ATTR_PERSISTENT => true]);
+    $dbHost = $_ENV['DB_HOST'] ?? 'localhost';
+    $dbName = $_ENV['DB_NAME'] ?? 'eMarket';
+    $dbPort = $_ENV['DB_PORT'] ?? 3306;
+    try {
+        return new PDO("mysql:host=$dbHost;dbname=$dbName;port=$dbPort",
+            $username,
+            $password,
+            [PDO::ATTR_PERSISTENT => true]);
+    } catch (PDOException $e) {
+        die("Error!: {$e->getMessage()}<br/>");
+    }
 }
 
 /**
