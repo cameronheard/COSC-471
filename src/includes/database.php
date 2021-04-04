@@ -5,7 +5,7 @@
  */
 function connect_to_database(): PDO
 {
-    $username = isset($_ENV["MYSQL_USERNAME_FILE"]) ? file_get_contents($_ENV["MYSQL_USERNAME_FILE"]) : $_ENV["MYSQL_USERNAME"] ?? "root";
+    $username = isset($_ENV["MYSQL_USER_FILE"]) ? file_get_contents($_ENV["MYSQL_USER_FILE"]) : $_ENV["MYSQL_USER"] ?? "root";
     $password = isset($_ENV["MYSQL_PASSWORD_FILE"]) ? file_get_contents($_ENV["MYSQL_PASSWORD_FILE"]) : $_ENV["MYSQL_PASSWORD"];
     $dbHost = $_ENV['DB_HOST'] ?? 'localhost';
     $dbName = $_ENV['DB_NAME'] ?? 'eMarket';
