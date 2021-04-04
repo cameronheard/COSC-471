@@ -10,4 +10,8 @@ switch ($_SERVER["PATH_INFO"] ?? "/") {
     case "/login":
         require "login.php";
         break;
+    case "/logout":
+        session_unset();
+        header("Location: {$_SERVER["SCRIPT_NAME"]}/login");
+        exit;
 }
