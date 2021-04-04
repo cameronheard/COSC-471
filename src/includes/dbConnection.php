@@ -7,19 +7,19 @@ $dbHost = $_ENV["DB_HOST"];
 /**
  * The current MySQL user, defaulting to "root"
  */
-$dbUser = $_ENV["MYSQL_USERNAME"] ?? "root";
+$dbUser = isset($_ENV["MYSQL_USER_FILE"]) ? file_get_contents($_ENV["MYSQL_USER_FILE"]) : $_ENV["MYSQL_USER"] ?? "root";
 
 /**
  * The current MySQL user's password.
  * If this environment variable isn't set, the connector will authenticate against users without a password
  * (such as the root user, if you hadn't set a password for it)
  */
-$dbPass = $_ENV["MYSQL_PASSWORD"];
+$dbPass = isset($_ENV["MYSQL_PASSWORD_FILE"]) ? file_get_contents($_ENV["MYSQL_PASSWORD_FILE"]) : $_ENV["MYSQL_PASSWORD"];
 
 /**
  * The name of the database to connect to
  */
-$db = "eMarket";
+$db = $_ENV["MYSQL_DATABASE"] ?? "eMarket";
 
 /**
  * The port number of the MySQL server.
