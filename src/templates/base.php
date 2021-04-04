@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title><?= $title ?></title>
+    <link rel="stylesheet" href="/static/base.css" type="text/css">
 </head>
 <body>
 <?php include __DIR__ . "/navbar.php" ?>
@@ -14,6 +15,8 @@
         }
     </script>
 <?php endif; ?>
-<?= $content ?>
+<div id="content">
+    <?= $content ?>
+</div>
 </body>
 </html>
