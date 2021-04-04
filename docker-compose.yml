@@ -31,13 +31,14 @@ services:
       MYSQL_USER_FILE: /run/secrets/mysql_username
       MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_DATABASE: eMarket
     secrets:
       - mysql_username
       - mysql_password
       - mysql_root_password
     volumes:
       - db_data:/var/lib/mysql
-      - ./migrations/:/app/migrations
+      - ./migrations/:/docker-entrypoint-initdb.d
     networks:
       - backend
     healthcheck:
