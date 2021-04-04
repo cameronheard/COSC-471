@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			.body {
+				background-color: rgba(253, 253, 253, 0.966);
+				border-style: solid;
+				width: 400px;
+				height: 270px;
+				text-align: center;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -135px;
+				margin-left: -200px;
+			}
+			.header {
+				background-color: rgba(253, 253, 253, 0.966);
+			}
+
+			.data-table {
+				text-align: center;
+				width: 400px;
+			}
+
+			.cell {
+				border-style: groove;
+			}
+		</style>
+	</head>
+	<body class="body">
+		<h2 class="header">My Order</h2>
+
+		<table class="data-table">
+			<tr>
+				<th>Product Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total Price</th>
+			</tr>
+			<tr>
+				<td class="cell">Stick</td>
+				<td class="cell">10.00</td>
+				<td class="cell">50</td>
+				<td class="cell">500.00</td>
+			</tr>
+			<tr>
+				<td class="cell">Log</td>
+				<td class="cell">150.00</td>
+				<td class="cell">10</td>
+				<td class="cell">1500.00</td>
+			</tr>
+		</table>
+		<p>
+			Total Cost: $2000.00<br /><br />
+
+			<button style="border-style: outset" type="button">Remove Product</button>
+		</p>
+		<p>
+			<button style="border-style: outset" type="button">Pay</button>
+		</p>
+	</body>
+</html>
