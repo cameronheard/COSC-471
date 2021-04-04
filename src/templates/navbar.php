@@ -1,11 +1,11 @@
 <nav class="topnav">
-    <?= $title ?>
-    <ul style="list">
+    <span id="title"><?= htmlspecialchars($title) ?></span>
+    <div id="auth_links">
         <?php if (!isset($_SESSION["user"])): ?>
-        <li><a href="/index.php/register">Register</a></li>
-        <li><a href="/index.php/login">Log In</a></li>
+            <a class="auth_link" href="/index.php/register">Register</a>
+            <a class="auth_link" href="/index.php/login">Log In</a>
         <?php else: ?>
-        <li><a href="/index.php/logout">Log Out</a></li>
+            <a class="auth_link" href="/index.php/logout">Log Out</a>
         <?php endif; ?>
-    </ul>
+    </div>
 </nav>
