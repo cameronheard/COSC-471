@@ -9,13 +9,8 @@
 <?php if (!empty($_SESSION["errors"])): ?>
     <script id="errors"
             type="application/json"><?= json_encode($_SESSION["errors"])  // Encodes the list of errors into a JSON array.  ?></script>
-    <script>
-        {
-            let errors = JSON.parse(document.getElementById("errors").text);  // Reads the provided JSON array from the server.
-            <?php unset($_SESSION["errors"])  // After retrieving the errors, remove them from the session ?>
-            alert(errors.join("\n"));  // Alerts the user to the error(s).
-        }
-    </script>
+    <?php unset($_SESSION["errors"])  // After retrieving the errors, remove them from the session ?>
+    <script defer src="scripts/display_errors.js"></script>
 <?php endif; ?>
 <div id="content">
     <?= $content ?>
