@@ -1,11 +1,16 @@
 <?php
-function login() {
+
+use exceptions\ValidationException;
+
+function login()
+{
     global $errors;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $login = $_POST["login"];
-            if (empty($login["email"])) array_push($errors, "Missing email!");
+        try {
+            if (empty($login["email"])) throw new ValidationException();
             else $email = $login["email"];
-            if (empty($login["password"])) array_push($errors, "Missing password!");
+            if (empty($login["password"])) throw new ValidationException();
             else $password = $login["password"];
 
             switch ($login["type"]) {
@@ -18,9 +23,7 @@ function login() {
                     $retrieve_user_query = "SELECT ID, Password FROM Seller WHERE Email = :email LIMIT 1;";
                     break;
                 default:
-                    array_push($errors, "No account type selected!");
-                    header("Location: " . $_SERVER["REQUEST_URI"]);
-                    die;
+                    throw new ValidationException();
             }
 
             if (!empty($errors)) {
@@ -42,8 +45,15 @@ function login() {
                 }
             } else array_push($errors, "No user found!");
 
-        header("Location: {$_SERVER['PHP_SELF']}");
-        exit;
+            header("Location: {$_SERVER['PHP_SELF']}");
+            exit;
+        } catch (ValidationException $exception) {
+            if (empty(filter_var($login["email"], FILTER_VALIDATE_EMAIL))) array_push($errors, "Missing email!");
+            if (empty($login["password"])) array_push($errors, "Missing password!");
+            if (empty($login["type"])) array_push($errors, "No account type selected!");
+            header("Location: {$_SERVER['REQUEST_URI']}");
+            die;
+        }
     }
 
     require __DIR__ . "/templates/auth/login.php";
