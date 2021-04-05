@@ -77,5 +77,3 @@ function register() {
     }
     require "templates/auth/register.php";
 }
-
-register();

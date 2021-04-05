@@ -6,9 +6,11 @@ require __DIR__ . "/includes/database.php";
 switch ($_SERVER["PATH_INFO"] ?? "/") {
     case "/register":
         require "register.php";
+        register();
         break;
     case "/login":
         require "login.php";
+        login();
         break;
     case "/logout":
         session_unset();
