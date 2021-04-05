@@ -5,4 +5,3 @@ $dbPass = "";
 $db = "eMarket";
 
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $db);
- ?>
