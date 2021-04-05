@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?= $title ?></title>
+    <title><?= $title ?? "Empty Page" ?></title>
     <link rel="stylesheet" href="/static/base.css" type="text/css">
 </head>
 <body>
@@ -13,7 +13,7 @@
     <script defer src="scripts/display_errors.js"></script>
 <?php endif; ?>
 <div id="content">
-    <?= $content ?>
+    <?= $content ?? "" ?>
 </div>
 </body>
 </html>

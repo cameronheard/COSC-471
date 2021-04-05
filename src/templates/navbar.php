@@ -1,5 +1,5 @@
 <nav class="topnav">
-    <span id="title"><?= htmlspecialchars($title) ?></span>
+    <span id="title"><?= htmlspecialchars($title ?? "Empty Page") ?></span>
     <div id="auth_links">
         <?php if (!isset($_SESSION["user"])): ?>
             <a class="auth_link" href="/index.php/register">Register</a>
