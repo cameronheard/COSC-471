@@ -19,3 +19,7 @@ nav.topnav {
 #auth_links a {
     padding: 1em;
 }
+
+td.product_price, td.product_stock {
+    text-align: right;
+}
