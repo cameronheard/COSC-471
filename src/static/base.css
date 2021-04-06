@@ -1,22 +1,32 @@
+body {
+    margin-top: 0;
+}
+
 .topnav #auth_links {
     margin-left: auto;
+    display: flex;
 }
 
 #title {
-    margin-left: 0;
+    font-weight: bold;
+    font-size: larger;
+    padding: 0 1em;
 }
 
 #content {
-    clear: both;
+    margin: auto;
+    width: fit-content;
 }
 
 nav.topnav {
     display: flex;
     flex-direction: row;
     justify-items: left;
+    position: sticky;
+    top: 0;
 }
 
-#auth_links a {
+#title, nav.topnav a {
     padding: 1em;
 }
 
