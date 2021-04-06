@@ -1,0 +1,12 @@
+INSERT INTO `Courier`(`Name`, `Street`, `Apt`, `City`, `State`, `Zip`, `Country`, `PhoneNo`) VALUES ('USPS', '7762 Somerset St', 348, 'Randolf', 'MA', 2368, 'USA', '2576017248');
+SET @courier_id = LAST_INSERT_ID();
+INSERT INTO `Customer`(`Fname`, `Lname`, `PhoneNo`, `Street`, `City`, `Zip`, `State`, `Country`, `Email`, `Password`) VALUES ('Stu', 'Oarslogs', '7382849144', '395 West Wood Rd', 'Tampa', 33470, 'FL', 'USA', 'StuLogIn@gmail.com', '$2y$10$qRothJLGVw/ij6r3rFGc4u4ry2d6HoZkDAUKVqSM0tNeLTdqtE7PC');
+SET @customer_id = LAST_INSERT_ID();
+INSERT INTO `Seller`(`Fname`, `Lname`, `Street`, `Apt`, `City`, `State`, `Zip`, `Country`, `Email`, `PhoneNo`, `Password`) VALUES ('Benjamin', 'Harper', '971 Sawzal Lane', 302, 'Waxahatchet', 'FL', 33470, 'USA', 'TimberMerch@gmail.com', '7382849144', '$2y$10$Tm4TJk58ErlJs0BnRQPj3ee5CbJ0NCFbuO/KTHZxPiTRkXYP3X7Se');
+SET @seller_id = LAST_INSERT_ID();
+INSERT INTO `Store`(`Name`, `Street`, `Apt`, `City`, `State`, `Zip`, `Country`, `Email`, `PhoneNo`, `Description`, SellerID) VALUES ('Mains-tree-m Resources', '026 Willo Way', 567, 'Oakspeak', 'CO', 95395, 'USA', 'WoodMinistree@hotmail.com', '4371564840', 'Sells lots of sticks', @seller_id);
+SET @store_id = LAST_INSERT_ID();
+INSERT INTO `Product`(`Name`, `Price`, `Stock`, `StoreID`) VALUES ('Stick', 10, 55, @store_id);
+SET @product_id = LAST_INSERT_ID();
+INSERT INTO `Orders`(`Cost`, `Date`, `CustomerID`, `ProductID`, `CourierID`) VALUES (20, '2021-4-1', @customer_id, @product_id, @courier_id);
+INSERT INTO `Payment`(`Amount`, `PaymentType`, `CustomerID`) VALUES (100, 'Debit', @customer_id);
