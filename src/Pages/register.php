@@ -94,5 +94,5 @@ function register() {
         }
 
     }
-    require "templates/auth/register.php";
+    require __DIR__ . "/../templates/auth/register.php";
 }

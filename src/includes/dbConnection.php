@@ -2,7 +2,7 @@
 /**
  * The address of the MySQL server. If not set, the connector will default to "localhost"
  */
-$dbHost = $_ENV["DB_HOST"];
+$dbHost = $_ENV["DB_HOST"] ?? null;
 
 /**
  * The current MySQL user, defaulting to "root"
@@ -24,6 +24,6 @@ $db = $_ENV["MYSQL_DATABASE"] ?? "eMarket";
 /**
  * The port number of the MySQL server.
  */
-$dbPort = $_ENV["DB_PORT"];
+$dbPort = $_ENV["DB_PORT"] ?? null;
 
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $db, $dbPort);
