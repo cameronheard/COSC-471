@@ -14,7 +14,7 @@ $dbUser = isset($_ENV["MYSQL_USER_FILE"]) ? file_get_contents($_ENV["MYSQL_USER_
  * If this environment variable isn't set, the connector will authenticate against users without a password
  * (such as the root user, if you hadn't set a password for it)
  */
-$dbPass = isset($_ENV["MYSQL_PASSWORD_FILE"]) ? file_get_contents($_ENV["MYSQL_PASSWORD_FILE"]) : $_ENV["MYSQL_PASSWORD"];
+$dbPass = isset($_ENV["MYSQL_PASSWORD_FILE"]) ? file_get_contents($_ENV["MYSQL_PASSWORD_FILE"]) : $_ENV["MYSQL_PASSWORD"] ?? null;
 
 /**
  * The name of the database to connect to
