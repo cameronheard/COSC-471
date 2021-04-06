@@ -56,5 +56,5 @@ function login()
         }
     }
 
-    require __DIR__ . "/templates/auth/login.php";
+    require __DIR__ . "/../templates/auth/login.php";
 }
