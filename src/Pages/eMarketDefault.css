@@ -1,0 +1,36 @@
+body {
+    background-color: rgba(253, 253, 253, 0.966);
+    border-style: solid;
+    width: 400px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -135px;
+    margin-left: -200px;
+}
+header {
+    background-color: rgba(253, 253, 253, 0.966);
+}
+
+.text-entry {
+    border-style: inset;
+}
+
+.storeButton {
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50; /* Green */
+}
+
+.button {
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid #B53737; /* Rich Red */
+}
