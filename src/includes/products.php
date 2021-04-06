@@ -20,18 +20,18 @@ function getProductsByStoreID($storeID){
 
 function deleteProductByID($productID){
     global $conn;
-    $sql = "SELECT StoreID FROM Product WHERE ProductID='$productID'";
+    $sql = "SELECT StoreID FROM Product WHERE ID='$productID'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0 && $row = mysqli_fetch_assoc($result)){
         $storeID = $row['StoreID'];
     }
-    $sql = "DELETE FROM Product WHERE ProductID='$productID'";
+    $sql = "DELETE FROM Product WHERE ID='$productID'";
     mysqli_query($conn, $sql);
     return $storeID;
 }
 
 function editProductByID($productID){
     global $conn;
-    $sql = "DELETE FROM Product WHERE ProductID='$productID'";
+    $sql = "DELETE FROM Product WHERE ID='$productID'";
     mysqli_query($conn, $sql);
 }

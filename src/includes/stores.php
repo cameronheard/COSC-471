@@ -11,7 +11,7 @@ function getSellerName($sellerID){
 }
 function buttonsForStores($sellerID){
     global $conn;
-    $sql = "SELECT Name, StoreID FROM Store WHERE SellerID='$sellerID'";
+    $sql = "SELECT Name, ID FROM Store WHERE SellerID='$sellerID'";
     $result = mysqli_query($conn, $sql);
     $buttonCounter = 0;
     if (mysqli_num_rows($result) > 0) {
