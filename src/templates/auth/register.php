@@ -36,7 +36,7 @@
     </tr>
     <tr>
         <td><label for="apartment_number">APT #:</label></td>
-        <td><input id="apartment_number" name="register[apartment_number]" type="number"></td>
+        <td><input id="apartment_number" name="register[apartment_number]"></td>
     </tr>
     <tr>
         <td><label for="city">City:</label></td>
