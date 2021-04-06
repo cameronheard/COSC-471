@@ -4,21 +4,10 @@
 <?php
 include("../includes/dbConnection.php");
 
-	// Checking to see if form is POST and the Submit button triggers the POST
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["Submit"])){
+session_start();
 
-	// If every field is not empty
-        if(!empty($_POST['CustomerID'])&& !empty($_POST['PaymentAmount'])&& !empty($_POST['PaymentType'])){
-    		// $ Creates a php variable and and $_POST() is grabbing the variable from the form
-            $CustomerID = $_POST['CustomerID'];
-            $PaymentAmount = $_POST['PaymentAmount'];
-            $PaymentType = $_POST['PaymentType'];
-
-		// Inserting the php variables to the table
-            $query = "INSERT INTO Payment (`PaymentAmount`, `PaymentType`, `CustomerID`) VALUES('$PaymentAmount', '$PaymentType', '$CustomerID')";
-                        mysqli_query($conn, $query);
-                    }
-                }
+$totalCost = $_GET['totalCost'];
+$customerID = $_GET["customerID"];
 
 ?>
 
@@ -60,12 +49,9 @@ include("../includes/dbConnection.php");
     </head>
     <body class="body">
         <h2 class="header">Make a payment</h2>
+                <form name="payment" method="post" action="insertPayment.php">
 
-    
-                <form name="payment" method="post" action="payment.php">
-
-                    <label style="margin-left: 25px;" for="CustomerID">Customer ID</label>
-                    <input class="text-entry" type="text" name="CustomerID"><br><br>
+                    
 
                     <label style="margin-left: -4px;" for="PaymentAmount">Payment Amount</label>
                     <input class="text-entry" type="text" name="PaymentAmount"><br><br>
@@ -78,8 +64,7 @@ include("../includes/dbConnection.php");
                         <option value="Sacks of Potatoes">Sacks of Potatoes</option>
                         <option value="Live Squirrels">Live Squirrels</option>
 	                </select><br><br>
-	
-
+                    <input type="hidden" name="customerID" value="<?php echo $customerID?>"/>
                     <input type="Submit" name="Submit" value="Submit"></input>
                   </form>
           
