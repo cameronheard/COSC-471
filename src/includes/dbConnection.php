@@ -1,8 +1,13 @@
-<?php 
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$db = "eMarket";
+<?php
+/**
+ * The address of the MySQL server. If not set, the connector will default to "localhost"
+ */
+$dbHost = $_ENV["DB_HOST"] ?? null;
+
+/**
+ * The current MySQL user, defaulting to "root"
+ */
+$dbUser = isset($_ENV["MYSQL_USER_FILE"]) ? file_get_contents($_ENV["MYSQL_USER_FILE"]) : $_ENV["MYSQL_USER"] ?? "root";
 
 /**
  * The current MySQL user's password.
