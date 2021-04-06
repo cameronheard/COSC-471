@@ -1,13 +1,13 @@
 <nav class="topnav">
     <span id="title"><?= htmlspecialchars($title ?? "Empty Page") ?></span>
-    <a href="/index.php/my-info">My Info</a>
-    <a href="/index.php/products">Products</a>
+    <a href="./my-info">My Info</a>
+    <a href="./products">Products</a>
     <div id="auth_links">
         <?php if (!isset($_SESSION["user"])): ?>
-            <a class="auth_link" href="/index.php/register">Register</a>
-            <a class="auth_link" href="/index.php/login">Log In</a>
+            <a class="auth_link" href="./register">Register</a>
+            <a class="auth_link" href="./login">Log In</a>
         <?php else: ?>
-            <a class="auth_link" href="/index.php/logout">Log Out</a>
+            <a class="auth_link" href="./logout">Log Out</a>
         <?php endif; ?>
     </div>
 </nav>
