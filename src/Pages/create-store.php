@@ -1,15 +1,31 @@
+<?php
+    session_start();
+    include '../includes/stores.php';
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["Submit"])) {
+        $storeID = createStore(1);
+        if (substr($storeID, 0, 5) === 'Error') {
+            header("Location: ../Pages/create-store.php?error=true");
+        } else {
+            header("Location: ../Pages/store-dashboard.php?storeID=" . $storeID);
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="eMarketDefault.css">
     <title>Create Store</title>
 
 </head>
 <body>
     <h1>Create Store</h1>
-    <form action="/action_page.php">
+    <?php if($_GET['error'] == 'true'){
+        echo('<h3>An error was encountered, please try again.</h3>');
+    }?>
+    <form name="createStore" action="create-store.php" method="post">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name"><br>
+        <input type="text" id="name" name="name" required><br>
         <label for="email">Email</label>
         <input type="email" id="email" name="email"><br>
         <label for="phone">Phone Number</label>
@@ -28,10 +44,10 @@
         <label for="state">State/Province</label>
         <input type="text" id="state" name="state"><br>
         <label for="country">Country</label>
-        <input type="text" id="country" name="country">
+        <input type="text" id="country" name="country"><br>
         <label for="zip">Postal Code</label>
         <input type="text" id="zip" name="zip"><br>
-        <input type="submit" value="Submit">
+        <input type="submit" name= "Submit" value="Submit">
     </form>
 </body>
 </html>

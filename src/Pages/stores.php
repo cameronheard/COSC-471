@@ -1,18 +1,27 @@
+<?php
+    session_start();
+    include '../includes/stores.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Store</title>
+    <link rel="stylesheet" href="eMarketDefault.css">
+    <title><?php getSellerName(1);?>'s Stores</title>
 </head>
 <body>
-<h1>XXXXXXXXX's Stores</h1>
+<h1><?php getSellerName(1);?>'s Stores</h1>
 
-    <input type="button" onclick="alert('OPEN STORE PAGE')" value="STORE XXXXX">
-    <input type="button" onclick="alert('OPEN STORE PAGE')" value="STORE XXXXX"><br>
-    <input type="button" onclick="alert('OPEN STORE PAGE')" value="STORE XXXXX">
-    <input type="button" onclick="alert('OPEN STORE PAGE')" value="STORE XXXXX"><br>
-    <input type="button" onclick="alert('NEW STORE PAGE')" value="New Store"><br>
-    <input type="button" onclick="alert('LOGOUT ACTION')" value="Logout">
+    <form action="store-dashboard.php" method="get">
+        <?php buttonsForStores(1);?>
+    </form>
+    <form action="create-store.php" method="get">
+        <?php newStoreButton(1);?>
+    </form>
+    <form action="logout.php" method="get">
+        <input type="submit" class="button" name="logout" value="Logout">
+    </form>
 
 </body>
 </html>

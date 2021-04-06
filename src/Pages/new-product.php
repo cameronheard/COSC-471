@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="eMarketDefault.css">
     <title>New Product</title>
 </head>
 <body>
@@ -13,6 +14,5 @@
     <label for="stock">Stock</label>
     <input type="number" id="stock" name="stock"><br>
     <input type="submit" value="Submit">
-
 </body>
 </html>

@@ -1,8 +1,24 @@
+<?php
+session_start();
+include '../includes/stores.php';
+include '../includes/products.php';
+$storeID = $_GET['storeID'];
+
+if(isset($_GET['deleteProductID'])){
+    $deleteProductID = $_GET['deleteProductID'];
+    $storeID = deleteProductByID($deleteProductID);
+    header("Location: ../Pages/store-products.php?storeID=" . $storeID);
+} elseif(isset($_GET['editProductID'])){
+    $editProductID = $_GET['editProductID'];
+    header("Location: ../Pages/edit-product.php?storeID=" . $storeID . "&productID=" . $editProductID);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>STORE NAME's PRODUCTS</title>
+    <link rel="stylesheet" href="eMarketDefault.css">
+    <title><?php getStoreName($storeID) ?>'s PRODUCTS</title>
     <style>
         table, th, td {
             border: 1px solid black;
@@ -15,20 +31,21 @@
     </style>
 </head>
 <body>
-    <h1>STORE_NAME's Products</h1>
+    <h1><?php getStoreName($storeID) ?>'s Products</h1>
+    <form action="store-products.php" method="get">
     <table>
         <tr>
             <th>ProductID</th>
             <th>ProductName</th>
             <th>Price</th>
             <th>Stock</th>
+            <th>Options</th>
         </tr>
         <tr>
-            <!-- rows filled in by db query -->
+            <?php getProductsByStoreID($storeID) ?>
         </tr>
     </table>
     <input type="button" onclick="alert('OPEN NEW PRODUCT PAGE')" value="New Product">
-    <input type="button" onclick="alert('OPEN EDIT PRODUCT PAGE')" value="Edit Product">
-
+    </form>
 </body>
 </html>
