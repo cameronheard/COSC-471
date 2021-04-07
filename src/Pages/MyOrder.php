@@ -66,7 +66,7 @@ $result = mysqli_query($conn, $sql);
             <tr>
                 <td class="cell"><?php echo $row['Name'];?></td>
                 <td class="cell"><?php echo $row['Price'];?></td>
-                <td class="cell"><?php echo ($_SESSION["totalCost"] / $row['Price']);?></td>
+                <td class="cell"><?php echo ($totalCost / $row['Price']);?></td>
                 <td class="cell"><?php echo $totalCost;?></td>
                 
             </tr>
