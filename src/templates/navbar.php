@@ -1,5 +1,5 @@
 <nav class="topnav">
-    <span id="title"><?= htmlspecialchars($title ?? "Empty Page") ?></span>
+    <h1 id="title"><?= htmlspecialchars($title ?? "Empty Page") ?></h1>
     <a href="./my-info">My Info</a>
     <a href="./products">Products</a>
     <div id="auth_links">
