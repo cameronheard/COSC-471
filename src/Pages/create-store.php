@@ -20,7 +20,7 @@
 </head>
 <body>
     <h1>Create Store</h1>
-    <?php if($_GET['error'] == 'true'){
+    <?php if(isset($_GET['error']) &&$_GET['error'] == 'true'){
         echo('<h3>An error was encountered, please try again.</h3>');
     }?>
     <form name="createStore" action="create-store.php" method="post">

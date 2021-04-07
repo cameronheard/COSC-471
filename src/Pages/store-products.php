@@ -33,19 +33,19 @@ if(isset($_GET['deleteProductID'])){
 <body>
     <h1><?php getStoreName($storeID) ?>'s Products</h1>
     <form action="store-products.php" method="get">
-    <table>
-        <tr>
-            <th>ProductID</th>
-            <th>ProductName</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Options</th>
-        </tr>
-        <tr>
-            <?php getProductsByStoreID($storeID) ?>
-        </tr>
-    </table>
-    <input type="button" onclick="alert('OPEN NEW PRODUCT PAGE')" value="New Product">
+        <table>
+            <tr>
+                <th>ProductID</th>
+                <th>ProductName</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Options</th>
+            </tr>
+            <tr>
+                <?php getProductsByStoreID($storeID) ?>
+            </tr>
+        </table>
+        <input type="button" onclick="alert('OPEN NEW PRODUCT PAGE')" value="New Product">
     </form>
 </body>
 </html>
