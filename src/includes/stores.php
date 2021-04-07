@@ -28,7 +28,7 @@ function buttonsForStores($sellerID){
 
 function getStoreName($storeID){
     global $conn;
-    $sql = "SELECT Name FROM Store WHERE StoreID='$storeID'";
+    $sql = "SELECT Name FROM Store WHERE ID='$storeID'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0 && $row = mysqli_fetch_assoc($result)){
         echo $row['Name'];
