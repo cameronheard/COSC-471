@@ -6,7 +6,7 @@ include("../includes/dbConnection.php");
 
 session_start();
 
-$totalCost = $_GET['totalCost'];
+$quantity = $_GET['quantity'];
 $customerID = $_GET['customerID'];
 $productNum = $_GET['productNum'];
 
@@ -66,8 +66,8 @@ $result = mysqli_query($conn, $sql);
             <tr>
                 <td class="cell"><?php echo $row['Name'];?></td>
                 <td class="cell"><?php echo $row['Price'];?></td>
-                <td class="cell"><?php echo ($totalCost / $row['Price']);?></td>
-                <td class="cell"><?php echo $totalCost;?></td>
+                <td class="cell"><?php echo $quantity;?></td>
+                <td class="cell"><?php echo ($quantity * $row['Price']);?></td>
                 
             </tr>
             <?php
@@ -81,7 +81,6 @@ $result = mysqli_query($conn, $sql);
 		</p>
 		<p>
         <form method="get" action="http://localhost/COSC-471/src/pages/Payment.php">
-						<input type="hidden" name="totalCost" value="<?php echo $totalCost?>"/>
     					<button type="submit" name="customerID" value="<?php echo $customerID?>" >Pay</button>
 						
 						</form>

@@ -6,7 +6,6 @@ include("../includes/dbConnection.php");
 
 session_start();
 
-$totalCost = $_GET['totalCost'];
 $customerID = $_GET["customerID"];
 
 ?>
