@@ -14,7 +14,7 @@ function search_products(product_name?: string): void {
         }
     };
 
-    request.open("GET", `receivers/search_products.php?name=${product_name}`);  // Requests a list of products based on the name entered into the search box
+    request.open("GET", `/COSC-471/src/receivers/search_products.php?name=${product_name}`);  // Requests a list of products based on the name entered into the search box
 
     request.send();
 }

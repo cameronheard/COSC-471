@@ -39,13 +39,14 @@ function login()
             $query->execute();
             $user = $query->fetch(PDO::FETCH_ASSOC);
 
-            if (!empty($user)) {
-                if (password_verify($password, $user["Password"])) {
-                    $_SESSION["user"] = ["id" => $user["ID"], "account_type" => $login["type"]];
-                }
-            } else array_push($errors, "No user found!");
+            if (!empty($user) && password_verify($password, $user["Password"])) {
+                $_SESSION["user"] = ["id" => $user["ID"], "account_type" => $login["type"]];
+                header("Location: {$_SERVER['SCRIPT_NAME']}/dashboard");
+            } else {
+                array_push($errors, "No user found!");
+                header("Location: {$_SERVER['SCRIPT_NAME']}/login");
+            }
 
-            header("Location: {$_SERVER['PHP_SELF']}");
             exit;
         } catch (ValidationException $exception) {
             if (empty(filter_var($login["email"], FILTER_VALIDATE_EMAIL))) array_push($errors, "Missing email!");
