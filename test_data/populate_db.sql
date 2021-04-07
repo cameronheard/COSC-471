@@ -8,5 +8,5 @@ INSERT INTO `Store`(`Name`, `Street`, `Apt`, `City`, `State`, `Zip`, `Country`, 
 SET @store_id = LAST_INSERT_ID();
 INSERT INTO `Product`(`Name`, `Price`, `Stock`, `StoreID`) VALUES ('Stick', 10, 55, @store_id);
 SET @product_id = LAST_INSERT_ID();
-INSERT INTO `Orders`(`Cost`, `Date`, `CustomerID`, `ProductID`, `CourierID`) VALUES (20, '2021-4-1', @customer_id, @product_id, @courier_id);
+INSERT INTO `Orders`(Quantity, `Date`, `CustomerID`, `ProductID`, `CourierID`) VALUES (20, '2021-4-1', @customer_id, @product_id, @courier_id);
 INSERT INTO `Payment`(`Amount`, `PaymentType`, `CustomerID`) VALUES (100, 'Debit', @customer_id);
