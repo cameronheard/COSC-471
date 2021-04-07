@@ -30,7 +30,7 @@
         </tr>
     </table>
     
-    <button onclick="document.location='MyOrderLayout.htm'">
+    <button onclick="document.location='MyOrder.php'">
         My Order
     </button>
 </body>

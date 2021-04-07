@@ -19,7 +19,7 @@
     Find Products
     </button><br>
     
-    <button onclick="document.location='MyOrdersPageLayout.htm'">
+    <button onclick="document.location='MyOrdersPage.php'">
     My Orders
     </button><br>
     
