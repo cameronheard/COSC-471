@@ -10,7 +10,7 @@ $customerID = $_GET['customerID'];
 $productNum = $_GET['productNum'];
 $orderID = $_GET['orderID'];
 
-$sql = "SELECT * FROM product WHERE ID='$productNum'";
+$sql = "SELECT * FROM Product WHERE ID='$productNum'";
 
 $result = mysqli_query($conn, $sql);
 
@@ -77,14 +77,14 @@ $result = mysqli_query($conn, $sql);
 		</table>
 		<p>
 
-		<form method="get" action="http://localhost/COSC-471/src/pages/deleteOrder.php">
+		<form method="get" action="deleteOrder.php">
     					<button type="submit" name="orderID" value="<?php echo $orderID?>" >Delete Order</button>
 						
 						</form>
 		</p>
 		</p>
 		<p>
-        <form method="get" action="http://localhost/COSC-471/src/pages/Payment.php">
+        <form method="get" action="Payment.php">
     					<button type="submit" name="customerID" value="<?php echo $customerID?>" >Pay</button>
 						
 						</form>

@@ -3,7 +3,7 @@ include("../includes/dbConnection.php");
 
 session_start();
 
-$sql = "SELECT * FROM product ";
+$sql = "SELECT * FROM Product ";
 
 $result = mysqli_query($conn, $sql);;
 

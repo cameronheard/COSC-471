@@ -26,6 +26,10 @@
     <button onclick="document.location='customer-my-info.php'">
     My Info
     </button><br>
+
+    <button onclick="document.location='index.php/logout'">
+    Logout
+    </button>
 </body>
 
 </html>

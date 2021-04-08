@@ -13,5 +13,5 @@ session_start();
 
 ?>
 <?php
-header("Location: http://localhost/COSC-471/src/pages/customer-dashboard.php");
+header("Location: customer-dashboard.php");
 ?>

@@ -70,7 +70,7 @@ $result = mysqli_query($conn, $sql);;
                 <td class="cell"><?php echo $row['Date'];?></td>
                 <td class="cell"><?php echo $row['Quantity'];?></td>
                 <td>
-					<form method="get" action="http://localhost/COSC-471/src/pages/MyOrder.php">
+					<form method="get" action="MyOrder.php">
 						<input type="hidden" name="productNum" value="<?php echo $row['ProductID']?>"/>
 						<input type="hidden" name="customerID" value="<?php echo $customerID?>"/>
 						<input type="hidden" name="orderID" value="<?php echo $row['ID']?>"/>
