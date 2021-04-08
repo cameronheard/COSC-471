@@ -7,7 +7,7 @@ session_start();
 //$customerID = $_SESSION["user"]["id"];
 $customerID= '1';
 
-$sql = "SELECT * FROM orders WHERE CustomerID='$customerID' ORDER BY Date ASC ";
+$sql = "SELECT * FROM Orders WHERE CustomerID='$customerID' ORDER BY Date ASC ";
 
 $result = mysqli_query($conn, $sql);;
 
@@ -70,7 +70,7 @@ $result = mysqli_query($conn, $sql);;
                 <td class="cell"><?php echo $row['Date'];?></td>
                 <td class="cell"><?php echo $row['Quantity'];?></td>
                 <td>
-					<form method="get" action="http://localhost/COSC-471/src/pages/MyOrder.php">
+					<form method="get" action="MyOrder.php">
 						<input type="hidden" name="productNum" value="<?php echo $row['ProductID']?>"/>
 						<input type="hidden" name="customerID" value="<?php echo $customerID?>"/>
     					<button type="submit" name="quantity" value="<?php echo $row['Quantity']?>" >Info</button>
