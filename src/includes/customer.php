@@ -25,7 +25,7 @@ function printCustomerInformation($customerID) {
 
     // Create a query for retrieving each attribute based on customerID.
     $sqlQuery = "SELECT Fname, Lname, Email, PhoneNo, Street, Apt, City, 
-        State, Country, Zip FROM customer WHERE ID='$customerID'";
+        State, Country, Zip FROM Customer WHERE ID='$customerID'";
     
     // Send query to database and store result.
     $result = mysqli_query($conn, $sqlQuery);
