@@ -37,7 +37,7 @@ if ((!empty($orders = filter_input(INPUT_POST, "order", FILTER_FORCE_ARRAY))) &&
             $buy_product->execute();  // Record the order in the Orders table
         }
     } catch (PDOException $exception) {
-        error_log($db->errorInfo()[2]);
+        error_log($exception->errorInfo[2]);
         http_response_code(500);
     }
 }
