@@ -1,4 +1,5 @@
-<nav class="topnav">
+<nav id="topnav">
+    <link rel="stylesheet" href="/COSC-471/src/static/css/navbar.css">
     <h1 id="title"><?= htmlspecialchars($title ?? "Empty Page") ?></h1>
     <a href="./my-info">My Info</a>
     <a href="./products">Products</a>

@@ -1,0 +1,23 @@
+nav#topnav #auth_links {
+    margin-left: auto;
+    display: flex;
+}
+
+nav#topnav #title {
+    font-weight: bold;
+    font-size: larger;
+    padding: 0 1em;
+    margin: 0;
+}
+
+nav#topnav {
+    display: flex;
+    flex-direction: row;
+    justify-items: left;
+    position: sticky;
+    top: 0;
+}
+
+nav#topnav #title, nav#topnav a {
+    padding: 1em;
+}

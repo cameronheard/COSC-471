@@ -2,33 +2,9 @@ body {
     margin-top: 0;
 }
 
-.topnav #auth_links {
-    margin-left: auto;
-    display: flex;
-}
-
-#title {
-    font-weight: bold;
-    font-size: larger;
-    padding: 0 1em;
-    margin: 0;
-}
-
 #content {
     margin: auto;
     width: fit-content;
-}
-
-nav.topnav {
-    display: flex;
-    flex-direction: row;
-    justify-items: left;
-    position: sticky;
-    top: 0;
-}
-
-#title, nav.topnav a {
-    padding: 1em;
 }
 
 td.product_price, td.product_stock {
