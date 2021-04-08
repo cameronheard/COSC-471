@@ -8,7 +8,7 @@ include '../includes/products.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["Submit"])) {
     $storeID = $_POST['storeID'];
     createProduct($storeID);
-    header("Location: ../Pages/store-dashboard.php?storeID=" . $storeID);
+    header("Location: ../Pages/store-products.php?storeID=" . $storeID);
 }
 
 ?>
