@@ -8,7 +8,7 @@ if (isset($_GET["product_id"])) {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     try {
-        $product_info = $db->prepare("SELECT P.Name, Price, Stock, S.Name as Store FROM Product P LEFT JOIN Store S on S.ID = P.StoreID WHERE P.ID = :product_id LIMIT 1;");
+        $product_info = $db->prepare("SELECT P.ID as id, P.Name as product_name, Price as price, Stock as stock, S.Name as store FROM Product P LEFT JOIN Store S on S.ID = P.StoreID WHERE P.ID = :product_id LIMIT 1;");
         $product_info->bindParam(":product_id", $_GET["product_id"], PDO::PARAM_INT);
         $product_info->execute();
 
