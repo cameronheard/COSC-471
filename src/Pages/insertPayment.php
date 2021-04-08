@@ -6,9 +6,6 @@ include("../includes/dbConnection.php");
 
 session_start();
 
-echo $_POST['PaymentType'];
-echo $_POST['PaymentAmount'];
-echo $_POST['customerID'];
 
 
             $PaymentAmount = $_POST['PaymentAmount'];

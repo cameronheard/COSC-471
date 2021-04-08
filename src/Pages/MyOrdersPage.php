@@ -1,11 +1,10 @@
 
-<!DOCTYPE html>
-
 <?php
 include("../includes/dbConnection.php");
 
 session_start();
 
+//$customerID = $_SESSION["user"]["id"];
 $customerID= '1';
 
 $sql = "SELECT * FROM orders WHERE CustomerID='$customerID' ORDER BY Date ASC ";
@@ -69,12 +68,12 @@ $result = mysqli_query($conn, $sql);;
             <tr>
                 <td class="cell"><?php echo $row['ID'];?></td>
                 <td class="cell"><?php echo $row['Date'];?></td>
-                <td class="cell"><?php echo $row['Cost'];?></td>
+                <td class="cell"><?php echo $row['Quantity'];?></td>
                 <td>
 					<form method="get" action="http://localhost/COSC-471/src/pages/MyOrder.php">
 						<input type="hidden" name="productNum" value="<?php echo $row['ProductID']?>"/>
 						<input type="hidden" name="customerID" value="<?php echo $customerID?>"/>
-    					<button type="submit" name="totalCost" value="<?php echo $row['Cost']?>" >Info</button>
+    					<button type="submit" name="quantity" value="<?php echo $row['Quantity']?>" >Info</button>
 						
 						</form>
 				</td>
