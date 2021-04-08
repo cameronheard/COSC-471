@@ -61,7 +61,7 @@ $result = mysqli_query($conn, $sql);;
                 <td class="cell"><?php echo $row['Price'];?></td>
                 <td class="cell"><?php echo $row['Stock'];?></td>
                 <td>
-					<form method="get" action="http://localhost/COSC-471/src/pages/customer-place-order.php">
+					<form method="get" action="customer-place-order.php">
 
     					<button type="submit" name="productID" value="<?php echo $row['ID']?>" >Purchase</button>
 						
