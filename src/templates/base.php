@@ -13,8 +13,8 @@
 </head>
 <body>
 <?php include __DIR__ . "/navbar.php" ?>
-<div id="content">
+<main id="content">
     <?= $content ?? "" ?>
-</div>
+</main>
 </body>
 </html>
