@@ -19,5 +19,5 @@ session_start();
 
 ?>
 <?php
-header("Location: http://localhost/COSC-471/src/pages/MyOrdersPage.php");
+header("Location: MyOrdersPage.php");
 ?>

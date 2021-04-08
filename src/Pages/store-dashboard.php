@@ -14,6 +14,10 @@
         $storeID = $_GET['info'];
         info($storeID);
     }
+    else if(array_key_exists('backToSeller', $_GET)) {
+        $sellerID = $_GET['backToSeller'];
+        backToSeller($sellerID);
+    }
     function orders($storeID) {
         header("Location: ../Pages/store-orders.php?storeID=" . $storeID);
     }
@@ -21,7 +25,10 @@
         header("Location: ../Pages/store-products.php?storeID=" . $storeID);
     }
     function info($storeID) {
-        header("Location: ../Pages/store-info.php?storeID=" . $storeID);
+        header("Location: ../Pages/edit-store.php?storeID=" . $storeID);
+    }
+    function backToSeller($sellerID) {
+        header("Location: ../Pages/seller-dashboard.php?sellerID=" . $sellerID);
     }
 ?>
 
@@ -41,7 +48,9 @@
         <button type='submit' name='products'
                 class='button' value='" . $storeID . "' >Products Page</button>
         <button type='submit' name='info'
-                class='button' value='" . $storeID . "' >Store Info</button>"
+                class='button' value='" . $storeID . "' >Store Info</button>
+        <button type='submit' name='backToSeller'
+                class='button' value='" . getSellerIDFromStoreID($storeID) . "' >Back to Seller</button>"
         ?>
     </form>
 </body>

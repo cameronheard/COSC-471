@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    $productID = $_GET['productID'];
+    include '../includes/products.php';
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["Submit"])) {
+        $productID = $_POST['productID'];
+        $storeID = $_POST['storeID'];
+        editProduct($productID);
+        if (substr($storeID, 0, 5) === 'Error') {
+            header("Location: ../Pages/create-store.php?error=true");
+        } else {
+            header("Location: ../Pages/store-products.php?storeID=" . $storeID);
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +22,8 @@
 </head>
 <body>
     <h1>Edit Product</h1>
-    <label for="name">Product Name</label>
-    <input type="text" id="name" name="name" value="FROM DATABASE"><br>
-    <label for="price">Price</label>
-    <input type="number" id="price" name="price" value="FROM DATABASE"><br>
-    <label for="stock">Stock</label>
-    <input type="number" id="stock" name="stock" value="FROM DATABASE"><br>
-    <input type="submit" value="Submit">
-
+    <form method="post" action="edit-product.php" name="editProduct">
+        <?php populateProductForm($productID); ?>
+    </form>
 </body>
 </html>

@@ -21,5 +21,5 @@ $query = "INSERT INTO Orders (`Quantity`, `Date`, `CustomerID`, `ProductID`, `Co
 
 ?>
 <?php
-header("Location: http://localhost/COSC-471/src/pages/customer-dashboard.php");
+header("Location: customer-dashboard.php");
 ?>
