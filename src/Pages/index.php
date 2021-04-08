@@ -24,6 +24,15 @@ switch ($_SERVER["PATH_INFO"] ?? null) {
                 exit;
         }
         break;
+    case "/create-store":
+        if ($_SESSION["user"]["account_type"] == "seller") {
+            header("Location: {$_SERVER['SCRIPT_NAME']}/../create-store.php");
+            exit;
+        } else {
+            array_push($errors, "Access denied!");
+            header("Location: {$_SERVER['SCRIPT_NAME']}/dashboard");
+            die;
+        }
     case "/register":
         require "register.php";
         register();
