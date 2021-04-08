@@ -14,9 +14,14 @@ if (isset($_GET["product_id"])) {
 
         $product = $product_info->fetch(PDO::FETCH_ASSOC);
 
-        http_response_code(200);
-        echo json_encode($product, JSON_FORCE_OBJECT | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_HEX_TAG);
-        exit;
+        if (!empty($product)) {
+            http_response_code(200);
+            echo json_encode($product, JSON_FORCE_OBJECT | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_HEX_TAG);
+            exit(0);
+        } else {
+            http_response_code(404);
+            die(1);
+        }
     } catch (PDOException $exception) {
         error_log($exception->errorInfo[2]);
         http_response_code(500);
