@@ -63,7 +63,7 @@ $result = mysqli_query($conn, $sql);;
                 <td>
 					<form method="get" action="http://localhost/COSC-471/src/pages/customer-place-order.php">
 
-    					<button type="submit" name="totalCost" value="<?php echo $row['ID']?>" >Info</button>
+    					<button type="submit" name="productID" value="<?php echo $row['ID']?>" >Purchase</button>
 						
 						</form>
 				</td>

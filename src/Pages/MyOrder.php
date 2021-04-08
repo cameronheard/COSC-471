@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 
 <?php
 include("../includes/dbConnection.php");
