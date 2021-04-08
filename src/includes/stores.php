@@ -35,6 +35,15 @@ function getStoreName($storeID){
     }
 }
 
+function getSellerIDFromStoreID($storeID){
+    global $conn;
+    $sql = "SELECT SellerID FROM Store WHERE ID='$storeID'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0 && $row = mysqli_fetch_assoc($result)){
+        return $row['SellerID'];
+    }
+}
+
 function newStoreButton($sellerID){
     echo "<button class='button' type='submit' name='sellerID' value='" . $sellerID . "'>New Store</button>";
 }

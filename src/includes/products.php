@@ -30,6 +30,19 @@ function deleteProductByID($productID){
     return $storeID;
 }
 
+function createProduct($storeID){
+    global $conn;
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
+    $sql="INSERT INTO Product (Name, Price, Stock, StoreID) VALUES ('$name','$price','$stock','$storeID')";
+    if (mysqli_query($conn, $sql)) {
+        return mysqli_insert_id($conn);
+    } else {
+        return "Error: " . mysqli_error($conn);
+    }
+}
+
 function editProductByID($productID){
     global $conn;
     $sql = "DELETE FROM Product WHERE ID='$productID'";
