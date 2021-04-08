@@ -1,37 +1,77 @@
+<?php
+include("../includes/dbConnection.php");
+
+session_start();
+
+$sql = "SELECT * FROM product ";
+
+$result = mysqli_query($conn, $sql);;
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Find Products</title>
-    <!--
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-            text-align: left;
-        }
-    </style>
-    -->
-</head>
-<body>
-    <h1>Find Products</h1>
-    <table>
-        <tr>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>BUTTON</th>
-        </tr>
-        <tr>
-            <!-- rows filled in by db query -->
-        </tr>
-    </table>
-    
-    <button onclick="document.location='MyOrderLayout.htm'">
-        My Order
-    </button>
-</body>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			.body {
+				background-color: rgba(253, 253, 253, 0.966);
+				border-style: solid;
+				width: 400px;
+				height: 270px;
+				text-align: center;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -135px;
+				margin-left: -200px;
+			}
+			.header {
+				background-color: rgba(253, 253, 253, 0.966);
+			}
+
+			.data-table {
+				text-align: center;
+				width: 400px;
+			}
+
+			.cell {
+				border-style: groove;
+			}
+		</style>
+	</head>
+	<body class="body">
+		<h2 class="header">Available Products</h2>
+
+		<table class="data-table">
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Stock</th>
+				<th></th>
+			</tr>
+			
+			<?php   
+                while($row=mysqli_fetch_array($result))
+                {
+             ?>
+            <tr>
+                <td class="cell"><?php echo $row['Name'];?></td>
+                <td class="cell"><?php echo $row['Price'];?></td>
+                <td class="cell"><?php echo $row['Stock'];?></td>
+                <td>
+					<form method="get" action="http://localhost/COSC-471/src/pages/customer-place-order.php">
+
+    					<button type="submit" name="productID" value="<?php echo $row['ID']?>" >Purchase</button>
+						
+						</form>
+				</td>
+            </tr>
+            <?php
+                }
+             ?>
+		</table>
+	</body>
 </html>

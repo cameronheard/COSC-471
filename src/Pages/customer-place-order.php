@@ -1,12 +1,10 @@
 
-<!DOCTYPE html>
-
 <?php
 include("../includes/dbConnection.php");
 
 session_start();
 
-$customerID = $_GET["customerID"];
+$productID = $_GET["productID"];
 
 ?>
 
@@ -47,23 +45,16 @@ $customerID = $_GET["customerID"];
         </script>
     </head>
     <body class="body">
-        <h2 class="header">Make a payment</h2>
-                <form name="payment" method="post" action="insertPayment.php">
+        <h2 class="header">Enter Order Details</h2>
+                <form name="payment" method="post" action="insertOrder.php">
 
                     
 
-                    <label style="margin-left: -4px;" for="PaymentAmount">Payment Amount</label>
-                    <input class="text-entry" type="text" name="PaymentAmount"><br><br>
+                    <label style="margin-left: -4px;" for="PaymentAmount">Quantity to purchase:</label>
+                    <input class="text-entry" type="text" name="quantity"><br><br>
 
-                    <label style="margin-left: -29px;" for="PaymentType">Payment Type</label>
-	                <select class="dropbtn" name="PaymentType">
-                        <option value>Select</option>
-                        <option value="Credit">Credit</option>
-                        <option value="Debit">Debit</option>
-                        <option value="Sacks of Potatoes">Sacks of Potatoes</option>
-                        <option value="Live Squirrels">Live Squirrels</option>
-	                </select><br><br>
-                    <input type="hidden" name="customerID" value="<?php echo $customerID?>"/>
+                    
+                    <input type="hidden" name="productID" value="<?php echo $productID?>"/>
                     <input type="Submit" name="Submit" value="Submit"></input>
                   </form>
           
