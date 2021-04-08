@@ -21,7 +21,7 @@
         header("Location: ../Pages/store-products.php?storeID=" . $storeID);
     }
     function info($storeID) {
-        header("Location: ../Pages/store-info.php?storeID=" . $storeID);
+        header("Location: ../Pages/edit-store.php?storeID=" . $storeID);
     }
 ?>
 
