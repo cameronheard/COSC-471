@@ -1,8 +1,8 @@
 <?php
 session_start();
+$storeID = $_GET['storeID'];
 include '../includes/stores.php';
 include '../includes/products.php';
-$storeID = $_GET['storeID'];
 
 if(isset($_GET['deleteProductID'])){
     $deleteProductID = $_GET['deleteProductID'];
