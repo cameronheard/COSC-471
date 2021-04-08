@@ -18,8 +18,8 @@ if (isset($_GET["product_id"])) {
         echo json_encode($product, JSON_FORCE_OBJECT | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_HEX_TAG);
         exit;
     } catch (PDOException $exception) {
-        error_log($db->errorInfo()[2]);
+        error_log($exception->errorInfo[2]);
         http_response_code(500);
-        die;
+        die(1);
     }
 }
