@@ -2,7 +2,8 @@
     session_start();
     include '../includes/stores.php';
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["Submit"])) {
-        $storeID = createStore(1);
+        $sellerID = $_SESSION["user"]["id"];
+        $storeID = createStore($sellerID);
         if (substr($storeID, 0, 5) === 'Error') {
             header("Location: ../Pages/create-store.php?error=true");
         } else {
@@ -20,9 +21,7 @@
 </head>
 <body>
     <h1>Create Store</h1>
-    <?php if(isset($_GET['error']) &&$_GET['error'] == 'true'){
-        echo('<h3>An error was encountered, please try again.</h3>');
-    }?>
+    <?php if((isset($_GET['error'])) && ($_GET['error'] == 'true')) echo('<h3>An error was encountered, please try again.</h3>'); ?>
     <form name="createStore" action="create-store.php" method="post">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required><br>

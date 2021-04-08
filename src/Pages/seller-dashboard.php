@@ -19,9 +19,10 @@
     <form action="create-store.php" method="get">
         <?php newStoreButton($sellerID);?>
     </form>
-    <form action="logout.php" method="get">
-        <input type="submit" class="button" name="logout" value="Logout">
-    </form>
+
+<button class="button" onclick="document.location='index.php/logout'">
+    Logout
+</button><br>
 
 </body>
 </html>

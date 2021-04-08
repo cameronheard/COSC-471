@@ -9,7 +9,7 @@ function getProductsByStoreID($storeID){
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>".$row['ProductID']."</td><td>".$row['Name']."</td><td>$".$row['Price']."</td><td>".$row['Stock']."</td><td><button class='removeProduct' type='submit' name='deleteProductID' value='" . $row['ProductID'] . "'>Remove Product</button><button class='editProduct' type='submit' name='editProductID' value='" . $row['ProductID'] . "'>Edit Product</button></td></tr>";
+            echo "<tr><td>".$row['ID']."</td><td>".$row['Name']."</td><td>$".$row['Price']."</td><td>".$row['Stock']."</td><td><button class='removeProduct' type='submit' name='deleteProductID' value='" . $row['ID'] . "'>Remove Product</button><button class='editProduct' type='submit' name='editProductID' value='" . $row['ID'] . "'>Edit Product</button></td></tr>";
             if($buttonCounter % 2 == 1) {
                 echo "<br>";
             }
