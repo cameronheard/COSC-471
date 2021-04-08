@@ -3,7 +3,7 @@ session_start();
 $_SESSION["errors"] = $_SESSION["errors"] ?? [];
 $errors =& $_SESSION["errors"];
 require __DIR__ . "/../includes/database.php";
-switch ($_SERVER["PATH_INFO"] ?? "/") {
+switch ($_SERVER["PATH_INFO"] ?? null) {
     case "/my-info":
         break;
     case "/products":
@@ -33,5 +33,9 @@ switch ($_SERVER["PATH_INFO"] ?? "/") {
     case "/logout":
         session_unset();
         header("Location: {$_SERVER["SCRIPT_NAME"]}/login");
+        exit;
+    case "/":
+    case null:
+        header("Location: {$_SERVER['SCRIPT_NAME']}/dashboard");
         exit;
 }
