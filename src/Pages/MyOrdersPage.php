@@ -4,8 +4,8 @@ include("../includes/dbConnection.php");
 
 session_start();
 
-//$customerID = $_SESSION["user"]["id"];
-$customerID= '1';
+$customerID = $_SESSION["user"]["id"];
+//$customerID= '1';
 
 $sql = "SELECT * FROM Orders WHERE CustomerID='$customerID' ORDER BY Date ASC ";
 
@@ -73,6 +73,7 @@ $result = mysqli_query($conn, $sql);;
 					<form method="get" action="MyOrder.php">
 						<input type="hidden" name="productNum" value="<?php echo $row['ProductID']?>"/>
 						<input type="hidden" name="customerID" value="<?php echo $customerID?>"/>
+						<input type="hidden" name="orderID" value="<?php echo $row['ID']?>"/>
     					<button type="submit" name="quantity" value="<?php echo $row['Quantity']?>" >Info</button>
 						
 						</form>

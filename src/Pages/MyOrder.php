@@ -8,6 +8,7 @@ session_start();
 $quantity = $_GET['quantity'];
 $customerID = $_GET['customerID'];
 $productNum = $_GET['productNum'];
+$orderID = $_GET['orderID'];
 
 $sql = "SELECT * FROM Product WHERE ID='$productNum'";
 
@@ -76,7 +77,11 @@ $result = mysqli_query($conn, $sql);
 		</table>
 		<p>
 
-			<button style="border-style: outset" type="button">Remove Product</button>
+		<form method="get" action="deleteOrder.php">
+    					<button type="submit" name="orderID" value="<?php echo $orderID?>" >Delete Order</button>
+						
+						</form>
+		</p>
 		</p>
 		<p>
         <form method="get" action="Payment.php">
