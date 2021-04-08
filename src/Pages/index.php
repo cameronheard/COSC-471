@@ -5,6 +5,8 @@ $errors =& $_SESSION["errors"];
 require __DIR__ . "/../includes/database.php";
 switch ($_SERVER["PATH_INFO"] ?? null) {
     case "/my-info":
+        if ($_SESSION["user"]["account_type"] == "customer") header("Location: {$_SERVER['SCRIPT_NAME']}/../customer-my-info.php");
+        else header("Location: {$_SERVER['SCRIPT_NAME']}/dashboard");
         break;
     case "/products":
         require "customer-find-products.php";
