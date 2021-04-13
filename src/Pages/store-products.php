@@ -14,6 +14,12 @@ if(isset($_GET['deleteProductID'])){
 } elseif(isset($_GET['newProduct'])){
     $storeID = $_GET['newProduct'];
     header("Location: ../Pages/new-product.php?storeID=" . $storeID);
+} elseif(array_key_exists('backToStore', $_GET)) {
+    $storeID = $_GET['backToStore'];
+    backToStore($storeID);
+}
+function backToStore($storeID){
+    header("Location: ../Pages/store-dashboard.php?storeID=" . $storeID);
 }
 ?>
 <!DOCTYPE html>
@@ -49,6 +55,7 @@ if(isset($_GET['deleteProductID'])){
             </tr>
         </table>
         <?php echo "<button class='newProduct' type='submit' name='newProduct' value='" . $storeID . "'>New Product</button>"?>
+        <?php echo "<button type='submit' name='backToStore' class='button' value='" . $storeID . "' >Back to Store</button>";?>
     </form>
 </body>
 </html>

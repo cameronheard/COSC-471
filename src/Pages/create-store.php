@@ -29,8 +29,6 @@
         <input type="email" id="email" name="email"><br>
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone"><br>
-        <label for="logo">Insert Logo</label>
-        <input type="file" id="logo" name="logo"><br>
         <label for="desc">Store Description</label>
         <textarea rows="4" cols="50" id="desc" name="desc"></textarea><br>
         <p>Address</p><br>
