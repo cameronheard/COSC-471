@@ -23,8 +23,8 @@ services:
       - mysql_username
       - mysql_password
     depends_on:
-      db:
-        condition: service_healthy
+      - db:
+          condition: service_healthy
 
   db:
     image: mysql
